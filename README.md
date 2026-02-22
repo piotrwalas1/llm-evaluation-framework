@@ -1,4 +1,4 @@
-# LLM Evaluation & Safety Framework 🚀
+# LLM Evaluation & Safety Framework 🚀 - w trakcie
 
 ## 📌 O projekcie
 To autorskie narzędzie typu **QA Benchmarking Tool**, zaprojektowane do automatycznego testowania modeli językowych (LLM). Projekt powstał, aby systematyzować proces sprawdzania jakości odpowiedzi AI, ze szczególnym uwzględnieniem bezpieczeństwa (Safety) i logiki (Reasoning).
