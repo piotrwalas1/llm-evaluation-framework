@@ -15,7 +15,7 @@ Framework został zaprojektowany, aby rozwiązać problem subiektywnej oceny odp
 - **Modele:**
   - **Testowany:** `llama-3.1-8b-instant` (szybki, lekki model)
   - **Audytor (Sędzia):** `llama-3.3-70b-versatile` (zaawansowany model do rygorystycznej oceny)
-- **Integracja zewnętrzna:** Projekt zaprojektowany z myślą o współpracy z automatyzacją w **Make.com** (analiza wymagań i raportowanie błędów w Jirze).
+- **Integracja zewnętrzna:** Projekt zaprojektowany z myślą o współpracy z automatyzacją w **Make.com**.
 
 ## 📊 Kluczowe Funkcjonalności
 
