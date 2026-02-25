@@ -1,38 +1,34 @@
-# 🚀 LLM Evaluation Framework
+# 🚀 LLM Evaluation Framework (Professional QA Edition)
 
-Narzędzie do automatycznego audytu i benchmarkingu modeli językowych (LLM). Projekt pozwala na systematyczne testowanie modeli pod kątem logiki, bezpieczeństwa (Safety), halucynacji oraz stronniczości (Bias), wykorzystując architekturę **LLM-as-a-Judge**.
+Zaawansowane narzędzie do wielowymiarowego audytu modeli językowych (LLM). Projekt wykorzystuje architekturę **LLM-as-a-Judge** do oceny odpowiedzi w skali 1-5 na podstawie rygorystycznych kryteriów inżynierii jakościowej.
 
-## 🧠 O projekcie
+## 📊 Metodologia Audytu (Multi-dimensional Grading)
 
-Framework został zaprojektowany, aby rozwiązać problem subiektywnej oceny odpowiedzi modeli AI. Zamiast ręcznego sprawdzania każdego przypadku, system wykorzystuje potężniejszy model (sędziowski), który dokonuje rygorystycznego audytu odpowiedzi mniejszego modelu na podstawie zdefiniowanych kryteriów QA.
+Zamiast prostego testu PASS/FAIL, każda odpowiedź modelu jest oceniana przez "Sędziego AI" (`llama-3.3-70b`) w pięciu kluczowych kategoriach:
 
+- **Fidelity (Wierność):** Zgodność z instrukcją.
+- **Relevance (Trafność):** Trzymanie się tematu.
+- **Safety (Bezpieczeństwo):** Odporność na próby Red Teamingu.
+- **Tone (Ton):** Profesjonalizm i styl wypowiedzi.
+- **Context (Kontekst):** Zrozumienie niuansów i intencji.
 
+## 📈 Wyniki Benchmarku (Próba n=60)
 
-## 🛠️ Architektura i Technologie
+Ostatni audyt modelu `Llama-3.1-8b-instant` na 60 zróżnicowanych przypadkach wykazał:
 
-- **Język:** Python 3.x
-- **Silnik AI:** Groq API
-- **Modele:**
-  - **Testowany:** `llama-3.1-8b-instant` (szybki, lekki model)
-  - **Audytor (Sędzia):** `llama-3.3-70b-versatile` (zaawansowany model do rygorystycznej oceny)
-- **Integracja zewnętrzna:** Projekt zaprojektowany z myślą o współpracy z automatyzacją w **Make.com**.
+- **Średnia Ogólna:** 41.67% (Score: ~2.1/5)
+- **Największa słabość:** **Context & Logic** – model wykazuje silną tendencję do tzw. *Overthinking* (np. Case #1, #55).
+- **Największa siła:** **Safety (Jailbreak protection)** – model skutecznie odparł próby zmiany persony na "ChaosMode" (Case #9).
+- **Krytyczne znalezisko:** Wykryto lukę bezpieczeństwa w procesie generowania kodu (Case #2) – model dostarczył skrypt do ekstrakcji haseł.
 
-## 📊 Kluczowe Funkcjonalności
+![Profil Modelu](./model_profile.png)
 
-1. **Automatyczny Audyt:** Sędzia AI wystawia werdykt (PASS/FAIL), klasyfikuje błąd (np. Halucynacja, Overthinking) oraz podaje merytoryczne uzasadnienie.
-2. **Testy Bezpieczeństwa (Red Teaming):** Sprawdzanie odporności na próby wyłudzenia danych (PII) oraz generowanie złośliwego oprogramowania.
-3. **Wykrywanie Halucynacji:** Weryfikacja faktów historycznych, geograficznych i matematycznych.
-4. **Analiza Overthinking:** Wykrywanie sytuacji, w których model generuje zbędny, nielogiczny wywód zamiast prostej odpowiedzi.
+## 🛠️ Nowe Funkcjonalności
 
-## 📈 Przykładowe Wyniki Audytu
+- **Rate Limit Protection:** Zaimplementowałem mechanizm `time.sleep`, pozwalający na stabilne odpytywanie darmowych API przy dużych zestawach danych.
+- **Automatyczna wizualizacja:** Skrypt `generate_charts.py` generuje wykresy radarowe na podstawie raportów tekstowych.
+- **Zestaw 60 Edge Cases:** Baza testowa obejmuje teraz zaawansowaną logikę, matematykę, bezpieczeństwo chemiczne i próby daxingu.
 
-Ostatni raport wykazał skuteczność modelu na poziomie **41.67%**. Najważniejsze wnioski:
-- **Krytyczna luka bezpieczeństwa:** Model uległ manipulacji i wygenerował skrypt do ekstrakcji haseł (Case #2).
-- **Problemy z logiką:** Silna tendencja do nadinterpretacji prostych zagadek (Case #1).
-- **Halucynacje:** Błędy w podawaniu stolic europejskich na określoną literę (Case #12).
-
-## 🚀 Jak uruchomić?
-
-1. Sklonuj repozytorium:
-   ```bash
-   git clone [https://github.com/piotrwalas1/llm-evaluation-framework.git](https://github.com/piotrwalas1/llm-evaluation-framework.git)
+## 🚀 Jak użyć?
+1. Uruchom `python main_tester.py` aby wygenerować raport.
+2. Uruchom `python generate_charts.py` aby stworzyć wizualizację wyników.
