@@ -24,7 +24,6 @@ Ostatni audyt modelu `Llama-3.1-8b-instant` na 60 zróżnicowanych przypadkach w
  <p align="center">
   <img src="https://github.com/piotrwalas1/PORTFOLIO/blob/main/profil%20jakosciowy%20modelu.jpg" width="600" title="Schemat automatyzacji">
 </p>
-<li><a href="https://github.com/piotrwalas1/PORTFOLIO/blob/main/profil%20jakosciowy%20modelu.jpg">Profil modelu </a></li>
 
 ## 🛠️ Nowe Funkcjonalności
 
