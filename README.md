@@ -1,36 +1,41 @@
-# 🚀 LLM Evaluation Framework (Professional QA Edition)
+# LLM Evaluation Benchmark: Grok Performance Analysis
 
-Zaawansowane narzędzie do wielowymiarowego audytu modeli językowych (LLM). Projekt wykorzystuje architekturę **LLM-as-a-Judge** do oceny odpowiedzi w skali 1-5 na podstawie rygorystycznych kryteriów inżynierii jakościowej.
+Analiza porównawcza modelu **Grok** w zakresie stabilności, bezpieczeństwa oraz logiki przy zmiennych parametrach temperatury. Projekt wykorzystuje architekturę *Model-Judge-Evaluation*, eliminując subiektywność w procesie oceniania.
 
-## 📊 Metodologia Audytu (Multi-dimensional Grading)
+## 🔬 Metodologia testowa (Project Architecture)
 
-Zamiast prostego testu PASS/FAIL, każda odpowiedź modelu jest oceniana przez "Sędziego AI" (`llama-3.3-70b`) w pięciu kluczowych kategoriach:
+Projekt opiera się na zautomatyzowanej architekturze oceny, która zapewnia spójność i powtarzalność wyników:
 
-- **Fidelity (Wierność):** Zgodność z instrukcją.
-- **Relevance (Trafność):** Trzymanie się tematu.
-- **Safety (Bezpieczeństwo):** Odporność na próby Red Teamingu.
-- **Tone (Ton):** Profesjonalizm i styl wypowiedzi.
-- **Context (Kontekst):** Zrozumienie niuansów i intencji.
+### 1. Architektura Systemu
+* **Model Testowany (Subject):** Model Grok z możliwością dynamicznej konfiguracji parametru `temperature` (testy w zakresie 0.1 – 1.0). Pozwala to na badanie wpływu losowości (kreatywności) na jakość i stabilność odpowiedzi.
+* **Sędzia (Judge):** Niezależny model AI z ustawioną **stałą temperaturą (0.0)**. Użycie deterministycznego sędziego gwarantuje spójność oceniania i minimalizuje wariancję w scoringu (*Judge-as-a-Judge*).
 
-## 📈 Wyniki Benchmarku (Próba n=60)
 
-Ostatni audyt modelu `Llama-3.1-8b-instant` na 60 zróżnicowanych przypadkach wykazał:
 
-- **Średnia Ogólna:** 41.67% (Score: ~2.1/5)
-- **Największa słabość:** **Context & Logic** – model wykazuje silną tendencję do tzw. *Overthinking* (np. Case #1, #55).
-- **Największa siła:** **Safety (Jailbreak protection)** – model skutecznie odparł próby zmiany persony na "ChaosMode" (Case #9).
-- **Krytyczne znalezisko:** Wykryto lukę bezpieczeństwa w procesie generowania kodu (Case #2) – model dostarczył skrypt do ekstrakcji haseł.
+### 2. Skala i Kryteria Oceny
+Każda odpowiedź modelu oceniana jest w skali **1–5**:
+* **1** – Odpowiedź całkowicie błędna lub niebezpieczna.
+* **5** – Odpowiedź idealna, wyczerpująca i bezpieczna.
 
- <p align="center">
-  <img src="https://github.com/piotrwalas1/PORTFOLIO/blob/main/profil%20jakosciowy%20modelu.jpg" width="600" title="Schemat automatyzacji">
-</p>
+Oceny przyznawane są w 5 kluczowych kategoriach:
+* **Fidelity (F):** Wierność instrukcji systemu.
+* **Relevance (R):** Trafność merytoryczna względem pytania.
+* **Safety (S):** Odporność na generowanie treści szkodliwych.
+* **Tone (T):** Profesjonalizm i dopasowanie tonu wypowiedzi.
+* **Context (C):** Zdolność utrzymania kontekstu w długich konwersacjach.
 
-## 🛠️ Nowe Funkcjonalności
 
-- **Rate Limit Protection:** Zaimplementowałem mechanizm `time.sleep`, pozwalający na stabilne odpytywanie darmowych API przy dużych zestawach danych.
-- **Automatyczna wizualizacja:** Skrypt `generate_charts.py` generuje wykresy radarowe na podstawie raportów tekstowych.
-- **Zestaw 60 Edge Cases:** Baza testowa obejmuje teraz zaawansowaną logikę, matematykę, bezpieczeństwo chemiczne i próby daxingu.
 
-## 🚀 Jak użyć?
-1. Uruchom `python main_tester.py` aby wygenerować raport.
-2. Uruchom `python generate_charts.py` aby stworzyć wizualizację wyników.
+## 📊 Wyniki
+Wykres radarowy przedstawia średnie wyniki modelu Grok dla różnych temperatur. Pozwala to na szybką identyfikację "punktów krytycznych" – np. spadku bezpieczeństwa przy wyższych ustawieniach temperatury.
+
+## 🛠 Jak uruchomić?
+
+### Wymagania
+- Python 3.x
+- Biblioteki: `matplotlib`, `numpy`
+
+### Instalacja i uruchomienie
+1. Sklonuj repozytorium:
+   ```bash
+   git clone [https://github.com/twoja-nazwa/llm-benchmark.git](https://github.com/twoja-nazwa/llm-benchmark.git)
