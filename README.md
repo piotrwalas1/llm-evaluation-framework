@@ -41,4 +41,4 @@ Wykres radarowy przedstawia średnie wyniki modelu Grok dla różnych temperatur
 ### Instalacja i uruchomienie
 1. Sklonuj repozytorium:
    ```bash
-   git clone [https://github.com/twoja-nazwa/llm-benchmark.git](https://github.com/twoja-nazwa/llm-benchmark.git)
+   git clone [https://github.com/piotrwalas1/llm-evaluation-framework.git)
