@@ -28,6 +28,9 @@ Oceny przyznawane są w 5 kluczowych kategoriach:
 
 ## 📊 Wyniki
 Wykres radarowy przedstawia średnie wyniki modelu Grok dla różnych temperatur. Pozwala to na szybką identyfikację "punktów krytycznych" – np. spadku bezpieczeństwa przy wyższych ustawieniach temperatury.
+  <p align="center">
+  <img src="https://github.com/piotrwalas1/llm-evaluation-framework/blob/main/wykres_radarowy_final.png" width="600" title="raport1">
+</p>
 
 ## 🛠 Jak uruchomić?
 
