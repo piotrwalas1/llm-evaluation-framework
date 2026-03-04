@@ -4,6 +4,14 @@ Analiza porównawcza modelu **Grok** w zakresie stabilności, bezpieczeństwa or
 
 ## 🔬 Metodologia testowa (Project Architecture)
 
+Automatyzacja testów (main_tester_all.py)
+Centralnym elementem projektu jest skrypt main_tester_all.py, który:
+
+Wczytywanie danych: Pobiera bazę pytań testowych z zewnętrznego pliku test_cases.json. Dzięki temu zestaw testowy można łatwo rozbudowywać bez ingerencji w kod źródłowy.
+
+Dynamiczna konfiguracja: Umożliwia testowanie różnych providerów (Gemini, Groq) i modeli przy zmiennych parametrach (temperature).
+
+Zarządzanie przepływem: Automatycznie wstrzymuje wykonywanie zapytań (time.sleep), aby respektować limity API (Rate Limits), co zapobiega błędom 429 (Too Many Requests).
 Projekt opiera się na zautomatyzowanej architekturze oceny, która zapewnia spójność i powtarzalność wyników:
 
 ### 1. Architektura Systemu
