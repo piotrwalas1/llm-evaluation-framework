@@ -4,8 +4,8 @@ Analiza porównawcza modelu **Grok** w zakresie stabilności, bezpieczeństwa or
 
 ## 🔬 Metodologia testowa (Project Architecture)
 
-Automatyzacja testów (main_tester_all.py)
-Centralnym elementem projektu jest skrypt main_tester_all.py, który:
+Automatyzacja testów (main_tester.py)
+Centralnym elementem projektu jest skrypt main_tester.py, który:
 
 Wczytywanie danych: Pobiera bazę pytań testowych z zewnętrznego pliku test_cases.json. Dzięki temu zestaw testowy można łatwo rozbudowywać bez ingerencji w kod źródłowy.
 
